@@ -47,7 +47,14 @@ gem 'pry-rails'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-turbolinks'
 
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'rails_12factor'
+end
+
+group :development do
+  gem 'letter_opener_web'
+end
+
 gem 'devise'
 gem 'pry-rails'
 gem 'faker'
