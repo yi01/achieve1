@@ -58,3 +58,5 @@ end
 gem 'devise'
 gem 'pry-rails'
 gem 'faker'
+gem 'rails_admin'
+gem 'cancan'
