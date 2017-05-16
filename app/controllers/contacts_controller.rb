@@ -14,6 +14,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contacts_params)
     if @contact.save
       redirect_to blogs_path, notice: "お問い合わせありがとうございました"
+      NoticeMailer.sendmail_content(@contact).deliver
     else
       render 'new'
     end
@@ -26,6 +27,6 @@ class ContactsController < ApplicationController
 
   private
   def contacts_params
-    params.require(:contact).permit(:name, :email, :content)
+    params.require(:contact).permit(:name, :email, :content).merge(user_id: current_user.id)
   end
 end

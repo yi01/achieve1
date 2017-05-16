@@ -1,0 +1,7 @@
+<h1>お問い合わせありがとうございました</h1>
+<h4>title: <%= @contact.name %></h4>
+<h4>email: <%= @contact.email %></h4>
+<p>content: <%= @contact.content %></p>
+<p>
+  <%= link_to 'お問い合わせはこちら', new_contact_path %>
+</p>
