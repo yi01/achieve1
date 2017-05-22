@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          has_many :contacts
 
   mount_uploader :avatar, AvatarUploader
-
+  
   def update_with_password(params, *options)
     if provider.blank?
       super

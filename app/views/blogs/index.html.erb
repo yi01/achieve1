@@ -5,8 +5,13 @@
       <%= link_to "ブログを作成する", new_blog_path, class: 'btn btn-default' %>
     <% @blogs.each do |blog| %>
     <div class="row">
+      <% if blog.user.avatar? %>
+        <%= image_tag blog.user.avatar, class: "avatar-image" %>
+      <% else %>
+        <%= image_tag "no_image.png", class: "avatar-image" %>
+      <% end %>
+      <%= blog.user.name %>が投稿しました
       <h4><strong>タイトル：<%= blog.title %></strong></h4>
-      名前: <%= blog.user.name %>
       <p>内容：<%= blog.content %></p>
       <%= link_to "編集", edit_blog_path(blog.id), class: 'btn btn-default btn-sm btn-success' %>
       <%= link_to "削除", blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
