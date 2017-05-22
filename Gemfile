@@ -53,12 +53,17 @@ end
 
 group :development do
   gem 'letter_opener_web'
+  gem 'dotenv-rails'
 end
 
 gem 'devise'
-gem 'pry-rails'
 gem 'faker'
 gem 'rails_admin'
 gem 'cancan'
 gem 'better_errors'
 gem 'activeresource'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'carrierwave'
+gem 'mini_magick'
