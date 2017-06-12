@@ -3,6 +3,9 @@
 </div>
 <p>名前：<%= @user.name %></p>
 <p>メールアドレス：<%= @user.email %></p>
+
+<%= render 'follow_form', user: @user %>
+
 <ul>
   フォロー(<%= @user.followed_users.count %>)
   <% @user.followed_users.each do |user| %>
