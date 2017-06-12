@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
 
   before_action :authenticate_user!
 
-  before_action :set_blog, only: [:edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
     @blogs = Blog.all
@@ -24,6 +24,11 @@ class BlogsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @comment = @blog.comments.build
+    @comments = @blog.comments.order("created_at DESC")
   end
 
   def edit
