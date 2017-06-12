@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
          has_many :blogs
          has_many :contacts
+         has_many :comments, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
-  
+
   def update_with_password(params, *options)
     if provider.blank?
       super
